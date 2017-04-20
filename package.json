@@ -19,7 +19,6 @@
     "test": "mocha test/test.js --slow 5000 --timeout 10000"
   },
   "dependencies": {
-    "autoprefixer": "^6.0.3",
     "consolidate": "^0.14.0",
     "de-indent": "^1.0.0",
     "hash-sum": "^1.0.2",
@@ -40,6 +39,7 @@
     "css-loader": "*"
   },
   "devDependencies": {
+    "autoprefixer": "^6.0.3",
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.8.0",
