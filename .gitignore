@@ -3,3 +3,9 @@ npm-debug.log
 test/output
 docs/_book
 .DS_Store
+Thumbs.db
+
+.vscode/
+
+.idea/
+coverage/

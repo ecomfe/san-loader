@@ -184,7 +184,10 @@ describe('san-loader', function () {
 
   it('autoprefix', function (done) {
     test({
-      entry: './test/fixtures/autoprefix.san'
+      entry: './test/fixtures/autoprefix.san',
+      san: {
+        autoprefixer: {}
+      }
     }, function (window) {
       var style = window.document.querySelector('style').textContent
       expect(style).to.contain('body {\n  -webkit-transform: scale(1);\n          transform: scale(1);\n}')
