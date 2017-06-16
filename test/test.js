@@ -102,12 +102,12 @@ describe('san-loader', function () {
     }, function (window) {
       var module = window.sanModule.prototype
 
-      var id = '_s-' + hash(require.resolve('./fixtures/scoped-css.san'))
+      var id = 'data-s-' + hash(require.resolve('./fixtures/scoped-css.san'))
       expect(module.template).to.contain(
-        '<div ' + id + '=""><h1 ' + id + '="">hi</h1></div>\n' +
-        '<p class="abc def" ' + id + '="">hi</p>\n' +
-        '<template v-if="ok"><p class="test" ' + id + '="">yo</p></template>\n' +
-        '<svg ' + id + '=""><template><p ' + id + '=""></p></template></svg>'
+        '<div ' + id + '="true"><h1 ' + id + '="true">hi</h1></div>\n' +
+        '<p class="abc def" ' + id + '="true">hi</p>\n' +
+        '<template v-if="ok"><p class="test" ' + id + '="true">yo</p></template>\n' +
+        '<svg ' + id + '="true"><template><p ' + id + '="true"></p></template></svg>'
       )
       var style = window.document.querySelector('style').textContent
       expect(style).to.contain('.test[' + id + '] {\n  color: yellow;\n}')
@@ -124,7 +124,7 @@ describe('san-loader', function () {
       var styles = window.document.querySelectorAll('style')
       expect(styles[0].textContent).to.contain('h1 { color: red; }')
       // import with scoped
-      var id = '_s-' + hash(require.resolve('./fixtures/style-import.san'))
+      var id = 'data-s-' + hash(require.resolve('./fixtures/style-import.san'))
       expect(styles[1].textContent).to.contain('h1[' + id + '] { color: green; }')
       done()
     })
@@ -200,7 +200,7 @@ describe('san-loader', function () {
       entry: './test/fixtures/media-query.san'
     }, function (window) {
       var style = window.document.querySelector('style').textContent
-      var id = '_s-' + hash(require.resolve('./fixtures/media-query.san'))
+      var id = 'data-s-' + hash(require.resolve('./fixtures/media-query.san'))
       expect(style).to.contain('@media print {\n  .foo[' + id + '] {\n    color: #000;\n  }\n}')
       done()
     })
@@ -309,7 +309,7 @@ describe('san-loader', function () {
       // default module + pre-processor + scoped
       var anotherClassName = module.computed.$style().red
       expect(anotherClassName).to.match(/^_/).and.not.equal(className)
-      var id = '_s-' + hash(require.resolve('./fixtures/css-modules.san'))
+      var id = 'data-s-' + hash(require.resolve('./fixtures/css-modules.san'))
       expect(style).to.contain('.' + anotherClassName + '[' + id + ']')
 
       done()
