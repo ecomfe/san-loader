@@ -1,8 +1,12 @@
 <template lang="markdown">
+## {{msg}}
 </template>
 
 <script>
+module.exports = {
+  data () {
     return {
+      msg: 'Hello from Component A!'
     }
   }
 }
