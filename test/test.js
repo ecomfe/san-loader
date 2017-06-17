@@ -315,4 +315,14 @@ describe('san-loader', function () {
       done()
     })
   })
+
+  it('markdown template', function (done) {
+    test({
+      entry: './test/fixtures/markdown.san',
+    }, function (window) {
+      var module = window.sanModule.prototype
+      expect(module.template).to.contain('<h2>{{msg}}</h2>')
+      done()
+    })
+  })
 })
