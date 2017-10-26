@@ -8,8 +8,8 @@
 h1 {
   color: green;
 }
-.test > .test-c {
-  color: red
+.test > .child > .blabla {
+  color: red;
 }
 </style>
 
