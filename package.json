@@ -1,6 +1,6 @@
 {
   "name": "san-loader",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "San component loader for Webpack",
   "main": "lib/loader",
   "repository": "ecomfe/san-loader",
