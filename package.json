@@ -31,6 +31,7 @@
     "source-map": "^0.6.1"
   },
   "peerDependencies": {
+    "isomorphic-style-loader": "*",
     "style-loader": "*",
     "html-loader": "*",
     "css-loader": "*"
