@@ -102,6 +102,23 @@
         "webpack": "^3.0.0 || ^4.1.0 || ^5.0.0-0"
     },
     "browserslist": "> 0.25%, not dead",
+    "commitlint": {
+        "extends": [
+            "gitmoji"
+        ],
+        "rules": {
+            "header-max-length": [
+                2,
+                "always",
+                120
+            ],
+            "subject-case": [
+                0,
+                "always",
+                "sentence-case"
+            ]
+        }
+    },
     "config": {
         "commitizen": {
             "path": "./node_modules/@ksky521/cz-emoji"
