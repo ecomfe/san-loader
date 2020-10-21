@@ -214,7 +214,7 @@ script 模块必须通过 `export default` 将组件的 JS 代码导出。在写
 San-Loader 会自动为导出为普通对象的模块外部自动包上 `san.defineComponent` 使之成为真正的 San 组件。
 
 ```js
-import script from './App.vue?san&type=script&lang=js';
+import script from './App.san?san&type=script&lang=js';
 import san from 'san';
 // ...
 export default san.defineComponent(script);
