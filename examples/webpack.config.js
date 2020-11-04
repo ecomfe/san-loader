@@ -34,7 +34,7 @@ module.exports = {
                     {
                         loader: path.resolve(__dirname, '../index.js'),
                         options: {
-                            compileTemplate: 'aPack'
+                            compileTemplate: 'none'
                         }
                     }
                 ]
@@ -175,14 +175,29 @@ module.exports = {
                 ]
             },
             {
-                test: /\.html$/,
+                test: /\.pug$/,
                 use: [
                     {
-                        loader: 'html-loader',
-                        options: {
-                            esModule: false,
-                            minimize: false
-                        }
+                        loader: 'html-loader'
+                    },
+                    {
+                        loader: 'pug-plain-loader'
+                    }
+                ]
+            },
+            {
+                test: /\.html$/,
+                oneOf: [
+                    {
+                        use: [
+                            {
+                                loader: 'html-loader',
+                                options: {
+                                    esModule: false,
+                                    minimize: false
+                                }
+                            }
+                        ]
                     }
                 ]
             },

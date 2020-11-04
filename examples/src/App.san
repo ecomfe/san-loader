@@ -1,6 +1,7 @@
 <template>
     <div class="app-root">
         <span class="app-span">Hello, {{name}}</span>
+        <comp-pug world="pug"></comp-pug>
         <div class="{{$style.wrapper}}">
             <comp-child age="2">
                 <span class="{{$style.parent}}" slot="parent">x{{name}}</span>
@@ -21,6 +22,7 @@
 
 <script>
 import CompChild from './components/comp-child/index';
+import CompWithPug from './components/comp-pug';
 import CompComponent from './components/comp-component';
 import CompTSComponent from './components/comp-ts-component';
 import CompCustomStore from './components/comp-custom-store';
@@ -32,6 +34,7 @@ import CompSimpleTs from './components/ts/comp-simple-ts/index';
 
 export default {
     components: {
+        'comp-pug': CompWithPug,
         'comp-child': CompChild,
         'comp-component': CompComponent,
         'comp-ts-component': CompTSComponent,
