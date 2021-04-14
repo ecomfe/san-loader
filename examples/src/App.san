@@ -32,6 +32,8 @@ import CompSrc from './components/comp-src';
 import CompGlobalStoreJs from './components/js/comp-global-store/index';
 import CompSimpleTs from './components/ts/comp-simple-ts/index';
 
+export const homepage = 'https://github.com/ecomfe/san-loader';
+
 export default {
     components: {
         'comp-pug': CompWithPug,
