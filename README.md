@@ -125,7 +125,7 @@ module.exports = {
 };
 ```
 
-更加完整的 webpack 配置，可以参考示例：[San-Loader Webpack 配置实例](https://github.com/ecomfe/san-cli/blob/HEAD/packages/san-loader/examples/webpack.config.js)。
+更加完整的 webpack 配置，可以参考示例：[San-Loader Webpack 配置实例](https://github.com/ecomfe/san-loader/blob/master/examples/webpack.config.js)。
 
 ## Options
 
