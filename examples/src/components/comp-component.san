@@ -1,6 +1,9 @@
 <template>
     <div class="{{ $style.compComponent }}">
-        <div>this is <span>{{name}}</span>, the age is <span>{{age}}</span></div>
+        <div>
+            This is <span>{{name}}</span>, the age is <span>{{age}}</span>.
+            CSS Module background-color is <strong>lightgreen</strong>
+        </div>
         <div><button on-click="click">clicked {{clicked.time}} times</button></div>
     </div>
 </template>
@@ -42,4 +45,8 @@ console.log(`---- ${name} File loaded ----`)
     background: lightgreen;
 }
 </style>
-
+<style lang="less">
+.comp-component {
+    background: red;
+}
+</style>
