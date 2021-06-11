@@ -21,7 +21,8 @@
     },
     "husky": {
         "hooks": {
-            "pre-commit": "lint-staged && node scripts/test.js"
+            "pre-commit": "lint-staged && node scripts/test.js",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
         }
     },
     "author": "ecomfe-core",
