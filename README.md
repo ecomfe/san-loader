@@ -140,7 +140,7 @@ module.exports = {
 
 ### 扩展阅读
 
--   [aNode 结构设计](https//github.com/baidu/san/blob/master/doc/anode.md)
+-   [aNode 结构设计](https://github.com/baidu/san/blob/master/doc/anode.md)
 -   [aPack: aNode 压缩结构设计](https://github.com/baidu/san/blob/master/doc/anode-pack.md)
 
 ## 单文件写法
