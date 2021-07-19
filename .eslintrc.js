@@ -4,6 +4,9 @@ module.exports = {
         'plugin:jest/recommended'
     ],
     rules: {
-        'comma-dangle': 'off'
+        'comma-dangle': 'off',
+        'keyword-spacing': 'off',
+        'brace-style': 'off',
+        'space-before-function-paren': 'off',
     }
 };
