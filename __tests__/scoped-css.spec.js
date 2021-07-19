@@ -19,9 +19,9 @@ describe('test preparse function', () => {
         const id = hash(source);
 
         expect(preparse(source)).toEqual(
-            '<template><span scoped-'
+            '<template><span data-s-'
                 + id
-                + '>sanjs</span></template><style scoped>span[scoped-'
+                + '>sanjs</span></template><style scoped>span[data-s-'
                 + id
                 + ']{color:pink}</style>'
         );
@@ -32,9 +32,9 @@ describe('test preparse function', () => {
         const id = hash(source);
 
         expect(preparse(source)).toEqual(
-            '<template><span class="red" scoped-'
+            '<template><span class="red" data-s-'
                 + id
-                + '>sanjs</span></template><style scoped>.red[scoped-'
+                + '>sanjs</span></template><style scoped>.red[data-s-'
                 + id
                 + ']{color:pink}</style>'
         );
@@ -63,6 +63,6 @@ describe('test preparse function', () => {
             resourceQuery: '?lang=html&san=&type=template'
         };
         const ctx = webpackContext(scope).runLoader(loader, source);
-        expect(ctx.code).toEqual([1, 'span', 2, 33, 'scoped-1771f9b6', 3, '', undefined, 3, 'sanjs']);
+        expect(ctx.code).toEqual([1, 'span', 2, 33, 'data-s-1771f9b6', 3, '', undefined, 3, 'sanjs']);
     });
 });
