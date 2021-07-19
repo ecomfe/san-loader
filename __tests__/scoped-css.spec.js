@@ -16,12 +16,13 @@ describe('test preparse function', () => {
     // eslint-disable-next-line jest/expect-expect
     test('add scopedid with tag selector', () => {
         const source = '<template><span>sanjs</span></template><style scoped>span{color:pink}</style>';
-        const id = hash(source);
+        const resourcePath = '/path/to/test.san';
+        const id = hash(resourcePath);
 
-        expect(preparse(source)).toEqual(
-            '<template><span scoped-'
+        expect(preparse(source, resourcePath)).toEqual(
+            '<template><span data-s-'
                 + id
-                + '>sanjs</span></template><style scoped>span[scoped-'
+                + '>sanjs</span></template><style scoped>span[data-s-'
                 + id
                 + ']{color:pink}</style>'
         );
@@ -29,12 +30,13 @@ describe('test preparse function', () => {
 
     test('add scopedid with class selector', () => {
         const source = '<template><span class="red">sanjs</span></template><style scoped>.red{color:pink}</style>';
-        const id = hash(source);
+        const resourcePath = '/path/to/test.san';
+        const id = hash(resourcePath);
 
-        expect(preparse(source)).toEqual(
-            '<template><span class="red" scoped-'
+        expect(preparse(source, resourcePath)).toEqual(
+            '<template><span class="red" data-s-'
                 + id
-                + '>sanjs</span></template><style scoped>.red[scoped-'
+                + '>sanjs</span></template><style scoped>.red[data-s-'
                 + id
                 + ']{color:pink}</style>'
         );
@@ -50,7 +52,7 @@ describe('test preparse function', () => {
             resourceQuery: '?lang=html&san=&type=template'
         };
         const ctx = webpackContext(scope).runLoader(loader, source);
-        expect(JSON.stringify(ctx.code)).toContain(hash(source));
+        expect(JSON.stringify(ctx.code)).toContain(hash(scope.resourcePath));
     });
 
     test('in loader,really', () => {
@@ -63,6 +65,17 @@ describe('test preparse function', () => {
             resourceQuery: '?lang=html&san=&type=template'
         };
         const ctx = webpackContext(scope).runLoader(loader, source);
-        expect(ctx.code).toEqual([1, 'span', 2, 33, 'scoped-1771f9b6', 3, '', undefined, 3, 'sanjs']);
+        expect(ctx.code).toEqual([
+            1,
+            'span',
+            2,
+            33,
+            'data-s-' + hash(scope.resourcePath),
+            3,
+            '',
+            undefined,
+            3,
+            'sanjs'
+        ]);
     });
 });
