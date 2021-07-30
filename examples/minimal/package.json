@@ -1,0 +1,23 @@
+{
+    "name": "san-demo-webpack-minimal",
+    "version": "1.0.0",
+    "private": true,
+    "description": "demo for san webpack loader",
+    "main": "main.js",
+    "scripts": {
+        "start": "webpack serve --mode development"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "babel-loader": "^8.2.2",
+        "css-loader": "^6.2.0",
+        "html-loader": "^2.1.2",
+        "html-webpack-plugin": "^5.3.2",
+        "san": "^3.10.6",
+        "san-loader": "^0.3.0",
+        "style-loader": "^3.2.1",
+        "webpack": "^5.47.1",
+        "webpack-cli": "^4.7.2",
+        "webpack-dev-server": "^3.11.2"
+    }
+}

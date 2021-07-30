@@ -1,5 +1,5 @@
 {
-    "name": "san-demo-webpack",
+    "name": "san-demo-webpack-hmr",
     "version": "1.0.0",
     "private": true,
     "description": "demo for san webpack loader",
