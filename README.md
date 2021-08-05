@@ -584,3 +584,42 @@ CSS Modules 可以在使用 slot 时使用（会被编译到随机的类名）�
 
 [css-modules]: https://github.com/css-modules/css-modules
 [css-loader]: https://github.com/webpack-contrib/css-loader#localsconvention
+
+## Scoped CSS（version 0.3.0 以上）
+
+你可以在 `<style>` 标签上添加 `scoped` 属性，此时标签内的 CSS 只作用于当前组件 template 中的元素。编译后的 `html` 会添加 `data-s-${hash}` 属性。举例：
+
+```html
+<template>
+    <div>
+        <h1>red</h1>
+    </div>
+</template>
+
+<style scoped>
+    h1 {
+        color: red;
+    }
+</style>
+```
+
+浏览器中会表现为
+
+```html
+...
+<head>
+    <style>
+        h1[data-s-2dad60b2] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>normal black</h1>
+    ...
+    <div data-s-2dad60b2>
+        <h1 data-s-2dad60b2>red</h1>
+    </div>
+</body>
+```
