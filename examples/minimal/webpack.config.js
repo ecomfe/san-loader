@@ -1,7 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const SanLoaderPlugin = require('../../lib/plugin-webpack4');
+const SanLoaderPlugin = require('../../lib/plugin');
 
 module.exports = {
   entry: path.join(__dirname, './main.js'),
