@@ -1,13 +1,14 @@
-const SanLoaderPlugin = require('san-loader/lib/plugin');
+const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const { join } = require('path');
+const SanLoaderPlugin = require('../../lib/plugin-webpack4');
 
 module.exports = {
-  entry: join(__dirname, './main.js'),
+  entry: path.join(__dirname, './main.js'),
   output: {
-    path: join(__dirname, './dist'),
+    path: path.join(__dirname, './dist'),
   },
+  mode: 'development',
   devServer: {
     port: 8888,
   },
@@ -15,7 +16,7 @@ module.exports = {
     rules: [
       {
         test: /\.san$/,
-        use: [{ loader: 'san-loader', options: { esModule: true } }]
+        use: [{ loader: path.join(__dirname, '../../index.js'), options: { esModule: true } }]
       },
       {
         test: /\.js$/,
