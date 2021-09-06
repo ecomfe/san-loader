@@ -5,19 +5,30 @@
     "description": "demo for san webpack loader",
     "main": "main.js",
     "scripts": {
-        "start": "webpack serve --mode development"
+        "start": "http-server -c-1 dist",
+        "build": "webpack --progress",
+        "dev": "webpack-dev-server"
     },
     "license": "MIT",
     "devDependencies": {
-        "babel-loader": "^8.2.2",
-        "css-loader": "^6.2.0",
-        "html-loader": "^2.1.2",
-        "html-webpack-plugin": "^5.3.2",
-        "san": "^3.10.6",
-        "san-loader": "^0.3.0",
-        "style-loader": "^3.2.1",
-        "webpack": "^5.47.1",
-        "webpack-cli": "^4.7.2",
-        "webpack-dev-server": "^3.11.2"
+        "@babel/preset-env": "^7.9.6",
+        "@babel/preset-typescript": "^7.9.0",
+        "babel-loader": "^8.1.0",
+        "css-loader": "^3.5.3",
+        "html-loader": "^1.1.0",
+        "html-webpack-plugin": "^4.3.0",
+        "http-server": "^0.12.3",
+        "less-loader": "^6.1.0",
+        "pug": "^3.0.2",
+        "pug-plain-loader": "^1.1.0",
+        "san": "~3.9.0",
+        "san-hot-loader": "^0.1.1",
+        "san-store": "^2.0.2",
+        "san-update": "^2.1.0",
+        "style-loader": "^1.2.1",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-server": "3.10.1"
     }
 }
