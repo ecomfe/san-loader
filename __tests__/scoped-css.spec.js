@@ -25,6 +25,7 @@ describe('test preparse function', () => {
                 + '>sanjs</span></template><style scoped>span[data-s-'
                 + id
                 + ']{color:pink}</style>'
+                + '<script>export default {};</script>'
         );
     });
 
@@ -39,6 +40,7 @@ describe('test preparse function', () => {
                 + '>sanjs</span></template><style scoped>.red[data-s-'
                 + id
                 + ']{color:pink}</style>'
+                + '<script>export default {};</script>'
         );
     });
 

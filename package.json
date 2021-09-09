@@ -7,8 +7,6 @@
         "commit": "git-cz",
         "test": "node scripts/test.js",
         "es-check": "es-check es5 'lib/runtime/*.js'",
-        "dev": "cd examples/ && webpack-dev-server --config webpack.config.js",
-        "dev:build": "webpack --config examples/webpack.config.js",
         "prepublishOnly": "es-check es5 'lib/runtime/*.js'"
     },
     "lint-staged": {
