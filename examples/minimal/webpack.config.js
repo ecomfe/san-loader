@@ -37,6 +37,6 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({ template: './index.html' }),
-    new SanLoaderPlugin({ esModule: true }),
+    new SanLoaderPlugin(),
   ],
 };
