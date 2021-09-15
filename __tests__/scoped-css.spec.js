@@ -19,12 +19,13 @@ describe('test preparse function', () => {
         const resourcePath = '/path/to/test.san';
         const id = hash(resourcePath);
 
-        expect(preparse(source, resourcePath)).toEqual(
+        expect(preparse(source, resourcePath, true)).toEqual(
             '<template><span data-s-'
                 + id
                 + '>sanjs</span></template><style scoped>span[data-s-'
                 + id
                 + ']{color:pink}</style>'
+                + '<script>export default {};</script>'
         );
     });
 
@@ -33,12 +34,13 @@ describe('test preparse function', () => {
         const resourcePath = '/path/to/test.san';
         const id = hash(resourcePath);
 
-        expect(preparse(source, resourcePath)).toEqual(
+        expect(preparse(source, resourcePath, true)).toEqual(
             '<template><span class="red" data-s-'
                 + id
                 + '>sanjs</span></template><style scoped>.red[data-s-'
                 + id
                 + ']{color:pink}</style>'
+                + '<script>export default {};</script>'
         );
     });
 

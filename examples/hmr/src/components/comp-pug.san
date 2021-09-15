@@ -2,10 +2,3 @@
 .awesome-class
     h1 Hello {{world}}!
 </template>
-<script>
-export default {
-    initData() {
-        return {}
-    }
-}
-</script>
