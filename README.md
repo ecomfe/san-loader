@@ -126,9 +126,9 @@ module.exports = {
 ```
 
 更加完整的 webpack 配置，可以参考示例：
+
 - [San-Loader Webpack HMR 配置实例](https://github.com/ecomfe/san-loader/blob/master/examples/hmr/webpack.config.js)
 - [San-Loader Webpack Minimal](https://github.com/ecomfe/san-loader/blob/master/examples/minimal/webpack.config.js)
-
 
 ## Options
 
@@ -136,6 +136,7 @@ module.exports = {
 | :---------------: | :------------------------: | :------: | :------------------------------------------------------------------------ |
 | `compileTemplate` | <code>{'none'&#124;'aPack'&#124;'aNode'}</code> | `'none'` | 将组件的`template` 编译成`aPack`、`aNode`，**默认不编译**，详细见下面说明 |
 | `esModule` | `{Boolean}` | `false` | san-loader 默认使用 CommonJS 模块语法来生成 JS 模块，将该参数设为 true 可以改用 ES 模块语法 |
+| `autoAddScriptTag` | `{Boolean}` | `false` | 是否自动添加 `script` 标签，现在 `.san` 组件中 `script` 是可选的了 |
 
 **特殊说明：**
 
