@@ -38,7 +38,8 @@ module.exports = {
                         // 上面为测试+示例，下面为实际使用
                         // loader: 'san-loader'
                         options: {
-                            compileTemplate: 'none'
+                            compileTemplate: 'none',
+                            autoAddScriptTag: true,
                         }
                     }
                 ]

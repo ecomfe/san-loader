@@ -7,8 +7,8 @@
         "commit": "git-cz",
         "test": "node scripts/test.js",
         "es-check": "es-check es5 'lib/runtime/*.js'",
-        "dev": "cd examples/ && webpack-dev-server --config webpack.config.js",
-        "dev:build": "webpack --config examples/webpack.config.js",
+        "dev": "cd examples/minimal && webpack-dev-server --config webpack.config.js",
+        "dev:build": "cd examples/minimal && webpack --config webpack.config.js",
         "prepublishOnly": "es-check es5 'lib/runtime/*.js'"
     },
     "lint-staged": {
@@ -42,7 +42,7 @@
     "license": "MIT",
     "dependencies": {
         "hash-sum": "^2.0.0",
-        "htmlparser2": "^4.1.0",
+        "htmlparser2": "^7.1.2",
         "loader-utils": "^2.0.0",
         "magic-string": "^0.25.7",
         "postcss": "^8.3.5",
@@ -94,6 +94,8 @@
         "lint-staged": "^9.2.5",
         "mini-css-extract-plugin": "^0.9.0",
         "postcss-loader": "^3.0.0",
+        "pug": "^3.0.2",
+        "pug-plain-loader": "^1.1.0",
         "san": "~3.9.0",
         "san-hot-loader": "^0.1.1",
         "san-store": "^2.0.0",
