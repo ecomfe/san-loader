@@ -46,6 +46,7 @@
         "loader-utils": "^2.0.0",
         "magic-string": "^0.25.7",
         "postcss": "^8.3.5",
+        "dom-serializer": "^1.0.1",
         "san-anode-utils": "~3.9.1"
     },
     "repository": {
