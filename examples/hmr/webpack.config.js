@@ -8,11 +8,13 @@
  * @author clark-t
  */
 
+const path = require('path');
 const webpack = require('webpack');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
-const SanLoaderPlugin = require('../lib/plugin');
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const SanLoaderPlugin = require('../../lib/plugin');
+// 上面为测试+示例，下面为实际使用
+// const SanLoaderPlugin = require('san-loader/lib/plugin');
 
 module.exports = {
     entry: path.resolve(__dirname, './src/index.js'),
@@ -32,9 +34,12 @@ module.exports = {
                         loader: require.resolve('san-hot-loader')
                     },
                     {
-                        loader: path.resolve(__dirname, '../index.js'),
+                        loader: path.resolve(__dirname, '../../index.js'),
+                        // 上面为测试+示例，下面为实际使用
+                        // loader: 'san-loader'
                         options: {
-                            compileTemplate: 'none'
+                            compileTemplate: 'none',
+                            autoAddScriptTag: true,
                         }
                     }
                 ]

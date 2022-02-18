@@ -1,5 +1,6 @@
 <template>
     <div class="app-root">
+        <h1>this is a san example</h1>
         <span class="app-span">Hello, {{name}}</span>
         <comp-pug world="pug"></comp-pug>
         <div class="{{$style.wrapper}}">
@@ -89,3 +90,9 @@ export default {
 }
 </style>
 
+
+<style scoped>
+h1 {
+    color: red;
+}
+</style>

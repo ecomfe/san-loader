@@ -125,7 +125,10 @@ module.exports = {
 };
 ```
 
-更加完整的 webpack 配置，可以参考示例：[San-Loader Webpack 配置实例](https://github.com/ecomfe/san-loader/blob/master/examples/webpack.config.js)。
+更加完整的 webpack 配置，可以参考示例：
+
+- [San-Loader Webpack HMR 配置实例](https://github.com/ecomfe/san-loader/blob/master/examples/hmr/webpack.config.js)
+- [San-Loader Webpack Minimal](https://github.com/ecomfe/san-loader/blob/master/examples/minimal/webpack.config.js)
 
 ## Options
 
@@ -133,15 +136,17 @@ module.exports = {
 | :---------------: | :------------------------: | :------: | :------------------------------------------------------------------------ |
 | `compileTemplate` | <code>{'none'&#124;'aPack'&#124;'aNode'}</code> | `'none'` | 将组件的`template` 编译成`aPack`、`aNode`，**默认不编译**，详细见下面说明 |
 | `esModule` | `{Boolean}` | `false` | san-loader 默认使用 CommonJS 模块语法来生成 JS 模块，将该参数设为 true 可以改用 ES 模块语法 |
+| `autoAddScriptTag` | `{Boolean}` | `false` | 是否自动添加 `script` 标签，现在 `.san` 组件中 `script` 是可选的了 |
 
 **特殊说明：**
 
 > `compileTemplate`：San 组件的`string`类型的`template`通过编译可以返回[aNode](https://github.com/baidu/san/blob/master/doc/anode.md)结构，在定义组件的时候，可以直接使用`aNode`作为 template，这样可以减少了组件的`template`编译时间，提升了代码的执行效率，但是转成`aNode`的组件代码相对来说比较大，所以在`san@3.9.0`引入的概念的`aNode`压缩结构`aPack`，**使用`aPack`可以兼顾体积和效率的问题**。san-loader 中的`compileTemplate`就是来指定要不要将组件编译为`aPack`/`aNode`。**如果只想，单文件使用`compileTemplate`编译成对应的`aPack`或者`aNode`，可以直接在`template`上面写：`<template compileTemplate="aPack">`**。
+> 使用 `pug` 等预处理模版语言时，`compileTemplate` 不生效，请使用 [san-anode-loader](https://github.com/vanishcode/san-anode-loader)
 
 ### 扩展阅读
 
--   [aNode 结构设计](https://github.com/baidu/san/blob/master/doc/anode.md)
--   [aPack: aNode 压缩结构设计](https://github.com/baidu/san/blob/master/doc/anode-pack.md)
+- [aNode 结构设计](https://github.com/baidu/san/blob/master/doc/anode.md)
+- [aPack: aNode 压缩结构设计](https://github.com/baidu/san/blob/master/doc/anode-pack.md)
 
 ## 单文件写法
 
@@ -580,3 +585,42 @@ CSS Modules 可以在使用 slot 时使用（会被编译到随机的类名）�
 
 [css-modules]: https://github.com/css-modules/css-modules
 [css-loader]: https://github.com/webpack-contrib/css-loader#localsconvention
+
+## Scoped CSS（version 0.3.0 以上）
+
+你可以在 `<style>` 标签上添加 `scoped` 属性，此时标签内的 CSS 只作用于当前组件 template 中的元素。编译后的 `html` 会添加 `data-s-${hash}` 属性。举例：
+
+```html
+<template>
+    <div>
+        <h1>red</h1>
+    </div>
+</template>
+
+<style scoped>
+    h1 {
+        color: red;
+    }
+</style>
+```
+
+浏览器中会表现为
+
+```html
+...
+<head>
+    <style>
+        h1[data-s-2dad60b2] {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>normal black</h1>
+    ...
+    <div data-s-2dad60b2>
+        <h1 data-s-2dad60b2>red</h1>
+    </div>
+</body>
+```

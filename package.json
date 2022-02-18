@@ -1,21 +1,21 @@
 {
     "name": "san-loader",
-    "version": "0.2.1",
+    "version": "0.3.2",
     "description": "San single-file loader for Webpack",
     "main": "index.js",
     "scripts": {
         "commit": "git-cz",
-        "test":"node scripts/test.js",
+        "test": "node scripts/test.js",
         "es-check": "es-check es5 'lib/runtime/*.js'",
-        "dev": "cd examples/ && webpack-dev-server --config webpack.config.js",
-        "dev:build": "webpack --config examples/webpack.config.js",
+        "dev": "cd examples/minimal && webpack-dev-server --config webpack.config.js",
+        "dev:build": "cd examples/minimal && webpack --config webpack.config.js",
         "prepublishOnly": "es-check es5 'lib/runtime/*.js'"
     },
     "lint-staged": {
         "!(example|dist|output|__mocks__)/**/*.js": [
             "eslint"
         ],
-        "lib/runtime/*.js" : [
+        "lib/runtime/*.js": [
             "es-check es5"
         ]
     },
@@ -33,13 +33,20 @@
         {
             "name": "ksky521",
             "url": "https://github.com/ksky521"
+        },
+        {
+            "name": "vanishcode",
+            "url": "https://github.com/vanishcode"
         }
     ],
     "license": "MIT",
     "dependencies": {
-        "htmlparser2": "^4.1.0",
+        "hash-sum": "^2.0.0",
+        "htmlparser2": "^7.1.2",
         "loader-utils": "^2.0.0",
         "magic-string": "^0.25.7",
+        "postcss": "^8.3.5",
+        "dom-serializer": "^1.0.1",
         "san-anode-utils": "~3.9.1"
     },
     "repository": {
@@ -60,34 +67,36 @@
         "webpack-loader"
     ],
     "devDependencies": {
-        "@commitlint/cli": "^8.3.4",
-        "@commitlint/core": "^8.3.4",
-        "@ecomfe/eslint-config": "^3.2.0",
-        "@ksky521/cz-emoji": "^1.2.1",
-        "commitizen": "^4.0.3",
-        "commitlint-config-gitmoji": "1.0.1",
-        "eslint": "^6.8.0",
-        "eslint-plugin-babel": "^5.3.0",
-        "eslint-plugin-jest": "^23.8.2",
-        "babel-eslint": "^10.1.0",
-        "husky": "^4.0.0",
-        "lint-staged": "^9.2.5",
         "@babel/core": "^7.9.0",
         "@babel/plugin-proposal-class-properties": "^7.8.3",
         "@babel/preset-env": "^7.9.0",
         "@babel/preset-typescript": "^7.9.0",
+        "@commitlint/cli": "^8.3.4",
+        "@commitlint/core": "^8.3.4",
+        "@ecomfe/eslint-config": "^3.2.0",
+        "@ksky521/cz-emoji": "^1.2.1",
         "autoprefixer": "^9.7.4",
+        "babel-eslint": "^10.1.0",
         "babel-loader": "^8.0.6",
         "babel-preset-env": "^1.7.0",
+        "commitizen": "^4.0.3",
+        "commitlint-config-gitmoji": "1.0.1",
         "css-loader": "^3.4.2",
-        "jest": "^24.8.0",
         "es-check": "^5.1.0",
+        "eslint": "^6.8.0",
+        "eslint-plugin-babel": "^5.3.0",
+        "eslint-plugin-jest": "^23.8.2",
         "html-loader": "^0.5.5",
         "html-webpack-plugin": "^3.2.0",
+        "husky": "^4.0.0",
+        "jest": "^24.8.0",
         "less": "^3.11.1",
         "less-loader": "^5.0.0",
+        "lint-staged": "^9.2.5",
         "mini-css-extract-plugin": "^0.9.0",
         "postcss-loader": "^3.0.0",
+        "pug": "^3.0.2",
+        "pug-plain-loader": "^1.1.0",
         "san": "~3.9.0",
         "san-hot-loader": "^0.1.1",
         "san-store": "^2.0.0",
