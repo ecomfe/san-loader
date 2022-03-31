@@ -1,5 +1,8 @@
 <template>
-  <div class="content">Hello {{name}}!</div>
+  <div>
+    <div class="content">Hello {{name}}!</div>
+    <p class="{{$styleParagraph.paragraph}}">This is a paragraph with underline!</p>
+  </div>
 </template>
 
 <script>
@@ -15,5 +18,11 @@ export default {
 <style>
 .content {
   color: blue;
+}
+</style>
+
+<style module="styleParagraph">
+.paragraph {
+  text-decoration-line: underline;
 }
 </style>
