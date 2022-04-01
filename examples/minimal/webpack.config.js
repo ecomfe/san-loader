@@ -24,10 +24,29 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        oneOf: [
+          {
+            resourceQuery: /module/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: {
+                    localIdentName: '[local]_[hash:base64:5]'
+                  },
+                  localsConvention: 'camelCase'
+                }
+              }
+            ]
+          },
+          {
+            use: [
+              'style-loader',
+              'css-loader',
+            ]
+          }
+        ]
       },
       {
         test: /\.html$/,

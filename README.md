@@ -417,6 +417,24 @@ rules: [
 其中 `localIdentName` 用来指定编译后的类名，在开发环境请使用 `'[hash:base64]'`；
 `localsConvention` 是在模板和 JavaScript 中引用的名称，默认是不转换，`'camelCase'` 是把类名转换为驼峰风格。详情请参考：[css-loader 文档][css-loader]。
 
+### 命名 CSS Modules
+
+默认通过`<style module></style>`方式添加的样式，在组件中会给`data`添加`$style`变量。如果组件中有多个`style`，想区分不同的 style，也可以通过命名的方式定义不同`style`的变量名，示例如下：
+
+``` html
+<template>
+    <div class="{{$style}}">
+        <div class="{{$styleFooter}}"></div>
+    </div>
+</template>
+
+<style module>
+</style>
+
+<style module="styleFooter">
+</style>
+```
+
 ### 允许非 CSS Modules
 
 也可以指定部分 style 标签使用 CSS Modules，其他仍然是普通的全局 CSS：
