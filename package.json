@@ -41,12 +41,13 @@
     ],
     "license": "MIT",
     "dependencies": {
+        "dom-serializer": "^1.0.1",
         "hash-sum": "^2.0.0",
         "htmlparser2": "^7.1.2",
         "loader-utils": "^2.0.0",
         "magic-string": "^0.25.7",
         "postcss": "^8.3.5",
-        "dom-serializer": "^1.0.1",
+        "postcss-selector-parser": "~6.0.11",
         "san-anode-utils": "~3.9.1"
     },
     "repository": {
