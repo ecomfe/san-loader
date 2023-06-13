@@ -48,7 +48,7 @@
         "magic-string": "^0.25.7",
         "postcss": "^8.3.5",
         "postcss-selector-parser": "~6.0.11",
-        "san-anode-utils": "~3.9.1"
+        "san-anode-utils": "~3.10.0"
     },
     "repository": {
         "type": "git",
